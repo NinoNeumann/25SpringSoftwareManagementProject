@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block title %}首页 - 教室座位预约系统{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="jumbotron bg-light p-5 rounded">
+            <h1 class="display-4">欢迎使用教室座位预约系统</h1>
+            <p class="lead">这是一个便捷的教室座位预约平台，帮助您轻松预约自习座位。</p>
+            <hr class="my-4">
+            <p>开始使用我们的系统，让座位预约变得更加简单！</p>
+            {% if not user.is_authenticated %}
+                <a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">立即登录</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% if user.is_authenticated %}
+<div class="row mt-4">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">座位预约</h5>
+                <p class="card-text">查看可用教室和座位，进行在线预约。</p>
+                <a href="#" class="btn btn-primary">开始预约</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">我的预约</h5>
+                <p class="card-text">查看和管理您的预约记录。</p>
+                <a href="#" class="btn btn-primary">查看记录</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">教室管理</h5>
+                <p class="card-text">管理员功能：管理教室信息和座位状态。</p>
+                <a href="#" class="btn btn-primary">管理教室</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">预约规则</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">每人每天最多可预约2个时段</li>
+                    <li class="list-group-item">预约需提前24小时</li>
+                    <li class="list-group-item">如需取消请提前4小时操作</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">使用说明</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">选择教室和座位</li>
+                    <li class="list-group-item">选择预约时段</li>
+                    <li class="list-group-item">确认预约信息</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %} 
