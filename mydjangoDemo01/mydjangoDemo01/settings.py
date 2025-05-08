@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -75,24 +74,24 @@ WSGI_APPLICATION = 'mydjangoDemo01.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
     # 'default': {
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     'HOST' : '127.0.0.1', #不能有多余的空格
-    #     'PORT' : 3306 ,
-    #     'USER': 'root',
-    #     # 'PASSWORD' : 'sqX2023@',
-    #     'PASSWORD' : '123456',
-    #     'NAME': 'library',
-    #     'OPTIONS': {
-    #         'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-    #         # 如果使用MySQL 8.0以上版本，添加以下选项
-    #         'charset': 'utf8mb4',
-    #     }
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     # }
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST' : '127.0.0.1', #不能有多余的空格
+        'PORT' : 3306 ,
+        'USER': 'root',
+        # 'PASSWORD' : 'sqX2023@',
+        'PASSWORD' : '123456',
+        'NAME': 'library',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            # 如果使用MySQL 8.0以上版本，添加以下选项
+            'charset': 'utf8mb4',
+        }
+    }
     # 'default': {
     #     'ENGINE': 'django.db.backends.mysql',
     #     'HOST' : '127.0.0.1', #不能有多余的空格
@@ -141,6 +140,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
