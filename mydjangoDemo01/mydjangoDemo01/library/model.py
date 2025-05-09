@@ -11,4 +11,12 @@ class UserInfo(models.Model):
     Name=models.CharField(max_length=50,null=True)
     Gender=models.BooleanField(null=True)
     Email=models.EmailField(unique=True,null=True) #学生与邮箱必须一一对应
+
+
+'''签到模块'''
+class SignInfo(models.Model):
+    UserID=models.ForeignKey(to=UserInfo,on_delete=models.CASCADE,null=True)
+    ReservationID=models.ForeignKey(to=ReservationInfo,on_delete=models.CASCADE)
+    Deadline=models.SmallIntegerField(null=True)
+
     
